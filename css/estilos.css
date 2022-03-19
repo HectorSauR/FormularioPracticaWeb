@@ -22,23 +22,25 @@ body {
 }
 
 .error {
-  width: 20%;
+  width: 30%;
   display: none;
   border-radius: 3px;
   background: #ce1818;
   color: #fff;
   padding: 15px;
   padding-left: 35px;
+  margin-left: 10px;
 }
 
 .formulario {
-  width: 80%;
+  width: 70%;
 }
 
 .formulario .contenedor-inputs {
+  position: relative;
   padding: 20px;
   background: #fff;
-  height: 260px;
+  height: 280px;
   border-radius: 6px 6px 0px 0px;
 }
 
@@ -66,20 +68,15 @@ body {
   border-bottom: 2px solid #246eb9;
 }
 
-.formulario .label-radio {
-  background: rgba(249, 160, 63, 0.4);
-  color: #fff;
-  padding: 10px;
-  text-align: center;
-  width: 49.5%;
-}
-
-.formulario .terminos {
+.formulario .mostrarContra {
+  position: absolute;
   text-align: center;
   color: #424242;
+  bottom: 10px;
+  left: 37%;
 }
 
-.formulario .terminos label {
+.formulario .mostrarContra label {
   margin-left: 10px;
 }
 
