@@ -60,6 +60,14 @@ body {
         }
     }
 
+    input[type="reset"]{
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        border: none;
+        padding: 5px;
+    }
+
     .mostrarContra{
         position: absolute;
         text-align: center;

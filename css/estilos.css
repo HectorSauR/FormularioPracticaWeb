@@ -68,6 +68,14 @@ body {
   border-bottom: 2px solid #246eb9;
 }
 
+.formulario input[type="reset"] {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  border: none;
+  padding: 5px;
+}
+
 .formulario .mostrarContra {
   position: absolute;
   text-align: center;
