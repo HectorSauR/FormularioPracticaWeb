@@ -3,12 +3,21 @@
         nombre = formulario.nombre;
         correo = formulario.correo;
         edad = formulario.edad;
-        terminos = formulario.terminos;
         usuario = formulario.usuario;
         contra = formulario.contra;
         contraConf = formulario.contraConf;
         mostrarContra = formulario.mostrarContra;
         error = document.getElementById('error');
+
+    let contenedorDatos = document.querySelector('#informacion');
+    let datos = [{
+        nom: "",
+        cor: "",
+        age: "",
+        usuario: "",
+        contra: "",
+        ecry: ""
+    }];
     const nom = /^[a-zA-Z\s]{1,40}$/;
     const us = /^[a-zA-Z0-9]{5,40}$/;
     const password = /^(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,40}/;
@@ -114,6 +123,7 @@
     }
 
     function validarFormulario(e){
+        e.preventDefault();
         error.innerHTML = '';
         let resul = validarNombre(e);
         resul = validarNumero(e) || resul; 
@@ -124,7 +134,28 @@
 
         if(resul){
             error.style.display = 'block';  
-        }else error.style.display = 'none';
+        }else{
+            error.style.display = 'none';
+            datos.nom = nombre.value;
+            datos.cor = correo.value;
+            datos.age = edad.value;
+            datos.usuario = usuario.value;
+            datos.contra = contra.value;
+            datos.encry = CryptoJS.MD5(contra.value);
+            // alert(datos.encry);
+            // Roteh2345@
+            contenedorDatos.style.display = "block";
+
+            
+
+            contenedorDatos.innerHTML+= "<p>Nombre: "+ datos.nom +"</p>"; 
+            contenedorDatos.innerHTML+= "<p>Correo: " + datos.cor + "</p>"; 
+            contenedorDatos.innerHTML+= "<p>Edad: " + datos.age + "</p>"; 
+            contenedorDatos.innerHTML+= "<p>Usuario: " + datos.usuario + "</p>"; 
+            contenedorDatos.innerHTML+= "<p>Contraseña: " + datos.contra + "</p>";
+            contenedorDatos.innerHTML+= "<p>Contraseña Encriptada: " + datos.encry + "</p>"; 
+
+        } 
     }
 
     formulario.addEventListener('submit', validarFormulario);
@@ -137,4 +168,20 @@
             contraConf.setAttribute("type", "password");
         }
     })
-// }())
+    
+    let vlr = true;
+    let btnRest= document.querySelector("#btnReset");
+
+    btnRest.addEventListener("click",(e)=>{
+        if(vlr){
+            e.preventDefault();
+            btnRest.setAttribute("value", "Confirmar");
+            vlr = false;
+        }else{
+            btnRest.setAttribute("value", "Limpiar");
+            contenedorDatos.style.display = "none";
+            contenedorDatos.innerHTML = ""; 
+            vlr = true;
+        }
+    });    
+    // }())
